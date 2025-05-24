@@ -1,8 +1,8 @@
-let counter = 0
+import crypto from "crypto"
 
 export function generateSessionId(): string {
-  counter += 1
-  const raw = "mock-session"
-  const signature = "et" + counter.toString(36).padStart(6, "0")
-  return `${raw}.${signature}`
+  const raw = crypto.randomBytes(16).toString("hex")
+  const hmac = crypto.createHmac("sha256", "supersecret")
+  hmac.update(raw)
+  return raw + "." + hmac.digest("hex")
 }

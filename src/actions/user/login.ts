@@ -18,6 +18,8 @@ export async function loginUser({ input }: LoginInput) {
 
   if (email === "admin@biff.dev" && password === "biff") {
     const id = generateSessionId()
+    console.log("📦 returning session:", id)
+
     setSession(id, { id: "u1", name: "Admin" })
     return {
       type: "redirect",

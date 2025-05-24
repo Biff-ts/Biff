@@ -14,7 +14,8 @@ export function Form<Input extends Record<string, unknown>, Result>({
   children
 }: FormProps<Input, Result>) {
   return (
-    <form
+    <form method="post"
+    action="http://localhost:3000/login"
       onSubmit={async (e) => {
         e.preventDefault()
         const fd = new FormData(e.currentTarget)

@@ -1,8 +1,9 @@
-import type { IncomingMessage } from "http"
-import type { FastifyReply } from "fastify"
 
+// types/context.ts
 export type AppContext = {
-  req: IncomingMessage
-  res: FastifyReply
+  req: Request
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  res: any // ← FastifyのresはNode型なのでanyで受けとく
   user?: { id: string; name: string }
 }
+
