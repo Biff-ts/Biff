@@ -1,166 +1,115 @@
-# Biff 🐗
+# Bevel.ts ✨
 
-**Biff** is the Backend-Initiative Fullstack Framework.
-Where the frontend speaks and the backend decides.
+**The Precision-Driven, AI-Ready Backend Framework for the Modern Web**
 
----
+Bevel.ts is a sleek, type-safe, intent-based backend framework designed for developers who value elegance, clarity, and modernity. Inspired by the architectural term *bevel* — a refined edge crafted with precision — Bevel.ts helps you carve structured APIs with deliberate intent, ready for AI and edge-native deployment.
 
-## 🐗 Introduction: Why Biff Was Born
-
-In 2025, we wanted to build sites that were both **server-rendered** and **fully interactive**—without drowning in `useEffect`, JSON APIs, or duplicated state.
-
-Biff was born from that need: to restore clarity, composability, and separation of concerns. The frontend should do **three things only**:
-
-1. **Declare intent** via forms
-2. **Render results** from the server
-3. **Look beautiful**
-
-That's it. The rest belongs to the backend.
-
-Biff lets developers focus on what matters: **design on the frontend, logic on the backend.**
-
-Our mascot? A wild boar. 🐗
-
-> Like a boar, Biff charges straight through the frontend mess and gets things done—cleanly and powerfully.
+With its mascot, the sharp-minded **BevelBeaver** 🦫, this framework stands for clarity in code, strength in structure, and speed in execution.
 
 ---
 
-## 🧠 Philosophy
+## ✨ Why Bevel.ts?
 
-* *UI is an intent.*
-* *The server is the application.*
-* *All logic lives in Context.*
+### 🧠 Intent Over Implementation
 
----
-
-## ✨ What Makes Biff Different?
-
-Biff is **not** a component framework.
-It is a **server-first, intent-driven logic execution** framework.
-
-### 🧩 UI is Just a Declaration
-
-In Biff, the React UI is **stateless**. It expresses intent via `<Form action={...}>`, and nothing more.
-
-* No `useState`
-* No `useEffect`
-* No hidden flows
-
-Example:
-
-```tsx
-<Form action={loginUser}>
-  <input name="email" />
-  <input name="password" />
-</Form>
-```
-
-### 🔁 Actions Are Linear and Typed
-
-Every action defines:
-
-* ✅ **Intent** (Zod-based input type)
-
-* ✅ **Handler** (async function with full `ctx`)
-
-* ✅ **Result** (success, redirect, error, html, etc.)
-
-* No GraphQL
-
-* No REST boilerplate
-
-* No DTO sync nightmares
-
-### 🧬 Context Is Your Truth
-
-All data flows through `AppContext`:
+Define the *what*, not the *how* — Bevel.ts centers your API architecture around intent.
 
 ```ts
-type AppContext = {
-  req: Request
-  res: Response
-  user?: User
-  db?: DB
-  logger?: Logger
-}
+defineIntent("user.login", z.object({ email: z.string(), password: z.string() }), async (ctx) => {
+  // login logic here
+});
 ```
 
-Injected via middleware:
+No REST. No GraphQL. Just direct, type-safe expression of what your backend is supposed to do.
 
-* Logged in? → `ctx.user`
-* Need DB? → `ctx.db`
+### ⚡ Blazing-Fast Developer Workflow
 
-This is not DI magic. This is just data.
+* 🔁 Hot-reload CLI: `bevel dev`
+* 🧪 Built-in Playground UI
+* 🧰 `bevel generate intent <name>` scaffolds your handlers instantly
 
----
+### 🌐 Built for the Edge, Built for Scale
 
-## 🔥 Biff vs Other Frameworks
+* Instant deploy to **Cloudflare Workers**, **Vercel Edge**, or **Bun runtime**
+* Zero cold starts, near-native startup times
 
-### 🆚 Next.js
+### 🔮 AI-Native & LLM-Ready
 
-| Feature              | Next.js             | Biff                           |
-| -------------------- | ------------------- | ------------------------------ |
-| SSR by default       | ❌ (CSR first)       | ✅ Always SSR                   |
-| Middleware structure | Limited (edge only) | ✅ Full pipeline with compose() |
-| Logic in UI          | ✅ useState etc.     | ❌ UI = form only               |
-| File-based routing   | ✅                   | ❌ (explicit routes.ts)         |
-| Isomorphic data      | ❌                   | ✅ Action + Context-based       |
+* Export OpenAI-compatible schemas from your endpoints
+* Out-of-the-box support for GPT-4o, Claude, LangChain, and others
+* Perfect for agent frameworks and function-calling APIs
 
-### 🆚 Astro
+### 🧱 All-in-One, Zero Lock-in
 
-| Feature                | Astro              | Biff                                |
-| ---------------------- | ------------------ | ----------------------------------- |
-| Island-based rendering | ✅                  | ❌ (Full SSR)                        |
-| Interactivity          | ❌ (Opt-in islands) | ✅ React-native forms + Result logic |
-| Form handling          | ❌ (manual POST)    | ✅ Fully typed server actions        |
-| Application state      | ❌ (manually wired) | ✅ All in Context pipeline           |
+* 🧬 Auth: [Lucia](https://lucia-auth.com/)
+* 🗄️ DB: [Drizzle ORM](https://orm.drizzle.team/) with native Postgres/SQLite support
+* 📦 Edge deploy, Auth, ORM — everything batteries-included, nothing proprietary
 
 ---
 
-## 🚀 Why Biff?
+## 🔥 Feature Comparison
 
-Because in 2025, the frontend is loud and unclear.
-**Biff makes the backend speak clearly.**
-
-* Better SEO (always SSR)
-* Better DX (typed input, typed result)
-* Better structure (no CLI magic, no file routing)
-
-**Biff doesn't guess. It executes.**
+| Feature                   | **Bevel.ts**               | Supabase      | Firebase          |
+| ------------------------- | -------------------------- | ------------- | ----------------- |
+| **Architecture**          | Intent-Driven              | SQL-first     | Event-driven      |
+| **Edge Support**          | Native (Cloudflare/Vercel) | Partial       | Limited           |
+| **Type Safety**           | Full (Zod + TypeScript)    | Partial       | Minimal           |
+| **Auth**                  | Modular (Lucia)            | Coupled       | Coupled           |
+| **Function Calling (AI)** | ✅ Built-in                 | ❌             | ❌                 |
+| **ORM/DB**                | Drizzle (relational)       | Postgres      | Firestore (NoSQL) |
+| **Dev Tooling**           | CLI + Playground           | GUI Studio    | Firebase Console  |
+| **Open Philosophy**       | OSS + Extensible           | Mostly closed | Black-boxed       |
 
 ---
 
-## 🛠️ Quickstart
+## 🧰 Tech Stack
+
+| Layer          | Technology                                |
+| -------------- | ----------------------------------------- |
+| Runtime        | Bun / Node.js (18+)                       |
+| Server         | Hono                                      |
+| API Schema     | Zod + tRPC                                |
+| Auth           | Lucia                                     |
+| ORM            | Drizzle ORM                               |
+| CLI            | Custom `bevel` CLI                        |
+| Deployment     | Cloudflare Workers / Vercel Edge          |
+| AI Integration | OpenAI Function Calling / LangChain-ready |
+| UI             | React + shadcn/ui + Radix + Framer Motion |
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-npx create-biff@latest
+npx bevel.ts init my-app
 cd my-app
-npm install
-npm run dev:server
+bevel generate intent user.register
+bevel dev
 ```
 
-* `/login` → `<Form action={loginUser}>`
-* `/dashboard` → SSR only, protected by `withAuth`
-* No JS? It still works. That’s the point.
+Open `http://localhost:3333` and explore your live API.
 
 ---
 
-## 🧪 Summary
+## 📦 Ideal Use Cases
 
-* No magic
-* No state in UI
-* No JSON APIs
-* No duplication
-
-Just: `intent → action → result`
-All through **Context**.
+* LLM apps with structured, callable functions
+* Internal tools with strict typings & tight DX
+* Headless SaaS products at startup speed
+* Microservices running at the edge
 
 ---
 
-## 🐗 Meet the Mascot
+## 🦫 Philosophy of BevelBeaver
 
-Biff the Boar is our champion of backend logic. When the frontend becomes a mess of client state, hydration errors, and broken APIs—he charges in, clears the path, and brings order.
+> "Code should be *cut* — not cluttered."
 
-> Strong, fast, and focused—just like the framework.
+Bevel.ts believes backends should be expressive, composable, and AI-compatible from day one. Just like a bevel refines structure with intent and clarity, Bevel.ts carves strong, minimal APIs for the modern web.
 
-You’ll see him charging through our docs, our console logs, and maybe even our stickers.
+Whether you're building LLM agents, edge-native platforms, or elegant backend stacks — **Bevel.ts brings design thinking to backend development.**
+
+---
+
+## ⭐ Star & Join the Movement
+
+If you believe in precision-first backend design, AI-native architecture, and fast, delightful DX — [⭐ star Bevel.ts on GitHub](#) and join the movement.
