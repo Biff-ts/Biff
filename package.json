@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "tsx src/server/router.ts"
+    
+    "start": "tsx src/server/router.ts",
+    "dev": "tsx scripts/dev.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.14.2",
     "@libsql/client": "^0.15.7",
+    "chokidar": "^4.0.3",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.43.1",
     "hono": "^4.7.10",

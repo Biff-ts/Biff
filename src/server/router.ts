@@ -1,41 +1,37 @@
+// src/server/router.ts
 import { Hono } from 'hono'
 import { makeCtx } from '../context/make-ctx'
 import * as hello from '../intents/hello'
 
-const app = new Hono()
-
 /**
- * Intent registry — for now, static import
+ * Create a new Hono app instance with the latest intent registry.
  */
-const intents = new Map<string, any>([
-  [hello.hello.name, hello.hello]
-])
+export function createApp() {
+  const app = new Hono()
 
-/**
- * POST /api/:intent — Call registered intent with JSON input
- */
-app.post('/api/:intent', async (c) => {
-  const name = c.req.param('intent')
-  const intent = intents.get(name)
+  const intents = new Map<string, any>([
+    [hello.hello.name, hello.hello]
+  ])
 
-  if (!intent) {
-    return c.json({ error: 'Intent not found' }, 404)
-  }
+  app.post('/api/:intent', async (c) => {
+    const name = c.req.param('intent')
+    const intent = intents.get(name)
 
-  const input = await c.req.json()
-  const parsed = intent.input.safeParse(input)
+    if (!intent) {
+      return c.json({ error: 'Intent not found' }, 404)
+    }
 
-  if (!parsed.success) {
-    return c.json({ error: 'Invalid input', details: parsed.error.format() }, 400)
-  }
+    const input = await c.req.json()
+    const parsed = intent.input.safeParse(input)
+    if (!parsed.success) {
+      return c.json({ error: 'Invalid input', details: parsed.error.format() }, 400)
+    }
 
+    const ctx = await makeCtx(c.req.raw)
+    const result = await intent.handler({ input: parsed.data, ctx })
 
+    return c.json(result)
+  })
 
-  const ctx = await makeCtx(c.req.raw as Request)
-
-  const result = await intent.handler({ input: parsed.data, ctx })
-
-  return c.json(result)
-})
-
-export default app
+  return app
+}
