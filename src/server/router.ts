@@ -28,5 +28,12 @@ app.post('/api/:intent', async (c) => {
 
   return c.json(result)
 })
+app.get('/intents', (c) => {
+  const list = Array.from(intents.values()).map((intent) => ({
+    name: intent.name,
+    description: intent.description ?? ''
+  }))
 
+  return c.json(list)
+})
 export default app
