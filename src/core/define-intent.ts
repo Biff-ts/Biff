@@ -1,4 +1,4 @@
-import { ZodTypeAny, infer as Infer } from 'zod'
+import type { ZodTypeAny, infer as Infer } from 'zod'
 
 /**
  * Minimal context shape for now. Can be extended later.

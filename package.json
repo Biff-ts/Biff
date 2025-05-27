@@ -1,23 +1,18 @@
 {
-  "name": "bevel",
-  "version": "0.1.0",
+  "name": "#",
+  "module": "index.ts",
   "type": "module",
-  "scripts": {
-    
-    "start": "tsx src/server/router.ts",
-    "dev": "tsx scripts/dev.ts"
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   },
   "dependencies": {
-    "@hono/node-server": "^1.14.2",
     "@libsql/client": "^0.15.7",
-    "chokidar": "^4.0.3",
-    "dotenv": "^16.5.0",
     "drizzle-orm": "^0.43.1",
     "hono": "^4.7.10",
-    "zod": "^3.22.4"
-  },
-  "devDependencies": {
-    "tsx": "^3.12.7",
-    "typescript": "^5.3.3"
+    "zod": "^3.25.30"
   }
 }
