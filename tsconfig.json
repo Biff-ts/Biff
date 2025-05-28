@@ -8,6 +8,7 @@
     "jsx": "react-jsxdev",
     "allowJs": true,
     "lib": ["dom", "esnext"],
+      "types": ["bun-types"],
 
 
     // Bundler mode
