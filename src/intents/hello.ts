@@ -8,7 +8,7 @@ export const hello = defineIntent("hello", {
   handler: async ({ input, ctx }) => {
   
     return {
-  message: `Heldlo again, ${input.name ?? "world"}!`
+  message: `Hello again, ${input.name ?? "world"}!`
 }
 
   },

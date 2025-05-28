@@ -6,7 +6,7 @@ import app from '../server/router'
  */
 Bun.serve({
   fetch: app.fetch,
-  port: 3333
+  port: 8787
 })
 
-console.log('🚀 bevel dev running on http://localhost:3333 (with Bun hot-reload)')
+console.log('🚀 bevel dev running on http://localhost:8787 (with Bun hot-reload)')
