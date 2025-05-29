@@ -1,14 +1,17 @@
 {
   "name": "bevel-ts",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "The intent-driven, LLM-native backend framework",
   "type": "module",
   "bin": {
-    "bevel-ts": "./src/cli/index.ts"
+      "bevel-ts": "./dist/cli/index.js"
   },
   "scripts": {
     "dev": "bun --watch --hot src/cli/dev.ts",
-    "ui": "bunx vite dev"
+    "ui": "bunx vite dev",
+  "build": "bun build src/cli/index.ts --outfile dist/cli/index.js --target bun",
+
+  "prepare": "bun run build"
   },
   "license": "MIT",
   "repository": {
