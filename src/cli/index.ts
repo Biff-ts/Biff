@@ -1,13 +1,18 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
+
+// ESMでも動作し、引数を正しくハンドリングし、init/generate をルーティングするCLI
 
 const [, , cmd, ...args] = process.argv
 
 if (cmd === 'init') {
-  await import('./init.ts')
+  const { init } = await import('./init.js') as { init: (args: string[]) => Promise<void> }
+
+  await init(args)
 } else if (cmd === 'generate') {
-  await import('./generate.ts')
+  const { generate } = await import('./generate.js') as { generate: (args: string[]) => Promise<void> }
+  await generate(args)
 } else {
-  console.error(`Unknown command: ${cmd}`)
+  console.error(`❌ Unknown command: ${cmd}`)
+  console.error(`🧭 Available commands: init <project-name>, generate intent <name>`)
   process.exit(1)
 }
-

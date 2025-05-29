@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "bun --watch --hot src/cli/dev.ts",
     "ui": "bunx vite dev",
-    "build": "bun build src/cli/index.ts --outfile dist/cli/index.js --target bun",
+    "build": "bun build src/cli/index.ts src/cli/init.ts src/cli/generate.ts --outdir dist/cli --target bun",
+
     "prepare": "bun run build"
   },
   "license": "MIT",
@@ -17,6 +18,20 @@
     "type": "git",
     "url": "https://github.com/Bevel-ts/Bevel.ts"
   },
+  "files": [
+  "dist",
+  "index.js",
+  "src",
+  ".env",
+  ".gitignore",
+  "bun.lock",
+  "LICENCE",
+  "README.md",
+  "package.json",
+  "tsconfig.json",
+  "package-lock.json",
+  "index.html"
+],
   "devDependencies": {
     "@types/bun": "latest",
     "@types/react": "^19.1.6",
