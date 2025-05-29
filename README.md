@@ -1,126 +1,115 @@
-# Bevel.ts 🚀 🦫 
+# Bevel.ts ✫
 
-### The Precision-Driven, AI-Native Backend Framework — Now Supercharged with **Bun**
+**The Intent-Driven, LLM-Ready, All-in-One Backend Stack**
 
-Bevel.ts is a **blazing-fast**, **type-safe**, **intent-based** backend framework built for developers who crave **elegance**, **clarity**, and **raw execution speed**.
+Bevel.ts is a modern, developer-first backend framework that reinvents BaaS — from a service-centric model to an intent-driven architecture. Define what your backend should *do*, and let Bevel.ts turn it into a type-safe, deployable, AI-ready backend.
 
-Inspired by the architectural term **bevel** — a precise, refined edge — Bevel.ts helps you **carve structured APIs** with deliberate intent. And now, powered by **Bun**, it operates at **galactic velocity**.
-
-With its mascot, the sharp-minded **BevelBeaver**  🦫 , this framework stands for **clarity in code**, **strength in structure**, and now — **quantum-grade speed in runtime.**
+With our official mascot — the unstoppable **BeasBeaver** ✫ — Bevel.ts is about building strong, structured, purposeful backend systems. Just like a beaver crafts resilient dams with precision and intent, Bevel.ts helps developers architect clean, composable APIs for the modern age.
 
 ---
 
-## ✨ What's New: **Now Powered by Bun**
+## ✨ Why Bevel.ts?
 
-* 🚀 **Zero-latency startup** — Cold starts are obsolete
-* 🔁 **Hot reload built-in** — No chokidar needed
-* 📦 **Single binary workflow** with `bunx bevel`
-* 🧠 **Bun-native watch mode** for frictionless DX
-* 🌐 **Edge-native ready** for Vercel, Cloudflare, and local Bun servers
+### 🛡 All-in-One Backend Stack
 
-> From **fast** to **instant**. Bevel.ts with Bun isn't just an upgrade — it's a **dimensional shift**.
+* Built-in support for API, Auth, DB, and AI integration
+* Designed for scale, DX, and Edge-native deployment
+* Everything you need — nothing you don't
+
+### 🔮 LLM-Native by Design
+
+* Export your API as OpenAI-compatible function-calling schemas
+* Zero effort integration with GPT-4o, LangChain, Claude, and more
+* Automatically typed endpoints that feel like magic (but aren't)
+
+### 🌍 Edge-Ready Out of the Box
+
+* Deploy instantly to Cloudflare Workers or Vercel Edge
+* Superfast startup, zero-cold-start infrastructure
+
+### 🧠 Intent-Driven API Design
+
+* Use `defineIntent("user.login", { ... })` to define the *what*, not the *how*
+* No REST scaffolding. No GraphQL boilerplate. Just clean, typed APIs
+
+### 🔐 Built-in Auth & DB
+
+* Lucia-powered authentication (zero vendor lock-in)
+* Drizzle ORM for type-safe, schema-driven SQL
+
+### 🧪 Incredible Developer Experience
+
+* `bevel dev` with hot reload + Playground UI
+* Type-safe CLI generation: `bevel generate intent user.login`
+* Built for Bun, Node 18+, and TypeScript fanatics
 
 ---
 
-## 🧠 Intent Over Implementation
+## 🔥 Feature Overview
 
-Forget REST. Forget GraphQL. Define the **what**, not the **how**:
+| Feature                   | Bevel.ts                  | Supabase      | Firebase                       |
+| ------------------------- | ------------------------- | ------------- | ------------------------------ |
+| **Architecture**          | Intent-driven             | SQL-first     | Event-driven                   |
+| **Type Safety**           | Full (Zod + TS)           | Partial       | Minimal                        |
+| **Function Calling (AI)** | ✅ Built-in                | ❌             | ❌                              |
+| **Edge-Ready**            | ✅ Native                  | ⚠️ Partial    | ⚠️ Limited                     |
+| **Auth**                  | Lucia (modular)           | Supabase Auth | Firebase Auth (tight coupling) |
+| **ORM/DB**                | Drizzle (Postgres/SQLite) | Postgres only | Firestore (NoSQL)              |
+| **Dev Tools**             | CLI + Playground UI       | GUI Studio    | Firebase Console               |
+| **Magic**                 | None (explicit code)      | Medium        | High (black-boxed)             |
 
-```ts
-defineIntent("user.login", z.object({
-  email: z.string(),
-  password: z.string()
-}), async (ctx) => {
-  // login logic
-});
+---
+
+## 🛡 Tech Stack
+
+| Layer          | Technology                                |
+| -------------- | ----------------------------------------- |
+| Runtime        | Bun / Node.js (18+)                       |
+| HTTP Server    | Hono                                      |
+| API Definition | tRPC + Zod                                |
+| ORM            | Drizzle ORM                               |
+| Auth           | Lucia                                     |
+| CLI Framework  | Custom (bevel CLI)                        |
+| Edge Deploy    | Cloudflare Workers / Vercel Edge          |
+| AI Integration | OpenAI Function Calling Export            |
+| UI             | React + shadcn/ui + Radix + Framer Motion |
+
+---
+
+## 🛠️ Quick Start
+
+```bash
+npx bevel-ts init my-app
+cd my-app
+npm run dev
+npm run ui
 ```
 
----
-
-## 🧨 AI-Ready from Day One
-
-Bevel.ts is **built for AI**:
-
-* ✨ OpenAI Function Calling-ready endpoints
-* 🔎 Native support for GPT-4o, Claude, LangChain
-* ⚖️ Autogenerated schemas for LLM agents
-* 💡 APIs that speak LLM natively
+Then open `http://localhost:3333` to explore your live API in the Playground UI.
 
 ---
 
-## 🛠️ Bun-Optimized Dev Workflow
+## 📦 Use Cases
 
-* 🔁 **Hot reload** with `bun --watch`
-* 🧪 Built-in **Playground UI** for intent testing
-* ⚒️ `bunx bevel generate intent <name>` in milliseconds
-* ⚡ From `npx` to endpoint in **under 5 seconds**
-
----
-
-## 🔮 Built for the Edge, Built for Now
-
-* Seamless deployment to **Cloudflare Workers**, **Vercel Edge**, or **Bun-native servers**
-* ⚡ **Zero cold starts**, native ESM, full portability
-* 💼 100% OSS, **modular**, **extensible**, and clean
+* Headless SaaS APIs with real structure
+* LLM tools that require callable endpoints
+* Internal tools with strict typing
+* Edge-ready microservices
 
 ---
 
-## 🔥 Feature Comparison
+## ✫ What Makes Bevel.ts Different?
 
-| Feature                   | **Bevel.ts (Bun)**      | Supabase  | Firebase       |
-| ------------------------- | ----------------------- | --------- | -------------- |
-| **Architecture**          | Intent-Driven           | SQL-first | Event-driven   |
-| **Edge Support**          | ✅ Bun/Vercel/Cloudflare | Partial   | Limited        |
-| **Cold Start**            | 🔥 Instant (Bun)        | Slow      | Variable       |
-| **Function Calling (AI)** | ✅ Native Schema Export  | ❌         | ❌              |
-| **Type Safety**           | Full (Zod + TS)         | Partial   | Minimal        |
-| **Dev UX**                | CLI-first, Bun-fast     | GUI-heavy | GUI-only       |
-| **Philosophy**            | Precision-first, OSS    | SQL tools | Vendor lock-in |
+> "Supabase is SQL. Firebase is events. \*\*Bevel.ts is *intent*."
+
+Bevel.ts isn't just another tool — it's a **philosophy of backend clarity**.
+
+✫ **BeasBeaver** reminds us: structure matters, intent matters, and building strong backends should be joyful.
+
+We believe backends should be expressive, composable, and AI-friendly. Bevel.ts is here to bring clarity and purpose to modern backend development.
 
 ---
 
-## 📋 Tech Stack (Bun-Native)
+## ⭐ Star Us
 
-| Layer      | Tech                              |
-| ---------- | --------------------------------- |
-| Runtime    | Bun / Node.js (18+)               |
-| Server     | Hono                              |
-| Schema     | Zod + tRPC                        |
-| Auth       | Lucia                             |
-| ORM        | Drizzle                           |
-| CLI        | Bun-native `bevel` CLI            |
-| AI Support | OpenAI / Claude / LangChain       |
-| UI         | React + shadcn/ui + Framer Motion |
-
----
-
-## 💡 Ideal Use Cases
-
-* 🔮 LLM Agent Backends (Function Calling-First)
-* 🧠 AI Tooling with Type Safety
-* ⚒️ Internal Tools & Headless SaaS
-* 🌐 Edge-native Microservices
-* ⚡ Bun-based Fullstack Systems
-
----
-
-##  🦫  Philosophy of BevelBeaver
-
-> "Code should be *cut* — not cluttered."
-
-Bevel.ts believes backends should be **expressive**, **composable**, and **AI-compatible** from day one.
-Like a bevel refines structure with elegance and intent, **Bevel.ts cuts away complexity to reveal clarity.**
-
----
-
-## ⭐ Star & Join the Movement
-
-If you believe in:
-
-* Bun-powered performance
-* AI-native architecture
-* Precision-first developer experience
-
-Then **Bevel.ts is your framework**.
-
-🔗 [Star Bevel.ts on GitHub](#) — Let’s shape the backend for this decade.
+If you believe in type-driven APIs, AI-native architecture, and DX-first frameworks — [star Bevel.ts on GitHub](https://github.com/Bevel-ts/Bevel.ts) and help us build the future of backends.
