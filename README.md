@@ -1,115 +1,147 @@
-# Bevel.ts ✫
+# 🦫　Bevel.ts
 
-**The Intent-Driven, LLM-Ready, All-in-One Backend Stack**
+**Type-Safe APIs. Intent-Driven Design. LLM-Ready.**
 
-Bevel.ts is a modern, developer-first backend framework that reinvents BaaS — from a service-centric model to an intent-driven architecture. Define what your backend should *do*, and let Bevel.ts turn it into a type-safe, deployable, AI-ready backend.
+Bevel.ts is a modern backend framework that turns *intent* into production-ready APIs — instantly.
+Define what your system should do, and let Bevel.ts generate the type-safe, scalable, and AI-compatible infrastructure for it.
 
-With our official mascot — the unstoppable **BeasBeaver** ✫ — Bevel.ts is about building strong, structured, purposeful backend systems. Just like a beaver crafts resilient dams with precision and intent, Bevel.ts helps developers architect clean, composable APIs for the modern age.
+> ✨ You define the "what" — Bevel.ts handles the "how".
+
+---
+
+## 🚀 Quick Start
+
+```bash
+npx bevel-ts init my-app
+cd my-app
+npm install
+npm run dev
+npm run ui
+```
+
+Then open [`http://localhost:3333`](http://localhost:3333) to explore your API live in the Playground UI.
+
+---
+
+## 🎮 Playground UI — Live, Typed, AI-Ready
+
+Bevel.ts comes with a full-featured visual UI to explore, test, and validate your backend intents.
+
+| ✅ Feature                 | Description                                                           |
+| ------------------------- | --------------------------------------------------------------------- |
+| Intent Listing            | Auto-fetch from `/intents`, rendered in sidebar                       |
+| Intent Selection          | State-aware, click to activate                                        |
+| JSON Schema Fetching      | Pulls from `/intents/:name/schema`                                    |
+| Auto Form Generation      | Built from schema via `react-jsonschema-form`                         |
+| Type-Safe Input Execution | Call your API via `POST /api/:intent`                                 |
+| JSON Response Viewer      | Pretty printed with syntax highlight (Prism.js)                       |
+| Function Calling Modal    | Show full GPT-callable schema with dialog + animation (Framer Motion) |
+
+### 🧠 Why It Matters
+
+| For...          | You get...                                                         |
+| --------------- | ------------------------------------------------------------------ |
+| Developers      | Instant feedback on intent behavior                                |
+| Type Systems    | Schema-derived inputs ensure Zod-level safety                      |
+| GPT Integrators | View/export OpenAI-compatible Function Calling JSON                |
+| Teams & PMs     | A living, shareable API spec — no Swagger, no Postman, no friction |
+
+> **This is your live backend design interface.**
+> *If it runs in Playground, it works in production.*
 
 ---
 
 ## ✨ Why Bevel.ts?
 
-### 🛡 All-in-One Backend Stack
+### 🧠 Intent-Driven API Design
 
-* Built-in support for API, Auth, DB, and AI integration
-* Designed for scale, DX, and Edge-native deployment
-* Everything you need — nothing you don't
+Define the *what*, not the *how*.
+
+```ts
+defineIntent("user.login", {
+  input: z.object({ email: z.string(), password: z.string() }),
+  handler: async ({ input }) => { /* ... */ }
+})
+```
+
+No REST boilerplate. No GraphQL schema stitching. Just intent and logic — fully typed.
+
+---
 
 ### 🔮 LLM-Native by Design
 
-* Export your API as OpenAI-compatible function-calling schemas
-* Zero effort integration with GPT-4o, LangChain, Claude, and more
-* Automatically typed endpoints that feel like magic (but aren't)
-
-### 🌍 Edge-Ready Out of the Box
-
-* Deploy instantly to Cloudflare Workers or Vercel Edge
-* Superfast startup, zero-cold-start infrastructure
-
-### 🧠 Intent-Driven API Design
-
-* Use `defineIntent("user.login", { ... })` to define the *what*, not the *how*
-* No REST scaffolding. No GraphQL boilerplate. Just clean, typed APIs
-
-### 🔐 Built-in Auth & DB
-
-* Lucia-powered authentication (zero vendor lock-in)
-* Drizzle ORM for type-safe, schema-driven SQL
-
-### 🧪 Incredible Developer Experience
-
-* `bevel dev` with hot reload + Playground UI
-* Type-safe CLI generation: `bevel generate intent user.login`
-* Built for Bun, Node 18+, and TypeScript fanatics
+Generate OpenAI-compatible schemas out of the box.
+Integrates with GPT-4o, Claude, LangChain, or any agent framework in seconds.
 
 ---
 
-## 🔥 Feature Overview
+### 🌍 Edge-Optimized Stack
 
-| Feature                   | Bevel.ts                  | Supabase      | Firebase                       |
-| ------------------------- | ------------------------- | ------------- | ------------------------------ |
-| **Architecture**          | Intent-driven             | SQL-first     | Event-driven                   |
-| **Type Safety**           | Full (Zod + TS)           | Partial       | Minimal                        |
-| **Function Calling (AI)** | ✅ Built-in                | ❌             | ❌                              |
-| **Edge-Ready**            | ✅ Native                  | ⚠️ Partial    | ⚠️ Limited                     |
-| **Auth**                  | Lucia (modular)           | Supabase Auth | Firebase Auth (tight coupling) |
-| **ORM/DB**                | Drizzle (Postgres/SQLite) | Postgres only | Firestore (NoSQL)              |
-| **Dev Tools**             | CLI + Playground UI       | GUI Studio    | Firebase Console               |
-| **Magic**                 | None (explicit code)      | Medium        | High (black-boxed)             |
+* Deploy instantly to **Cloudflare Workers** or **Vercel Edge**
+* Bun & Node 18+ ready
+* Auth + ORM + DX tools all in one
 
 ---
 
-## 🛡 Tech Stack
+## 🔪 Tech Stack
 
-| Layer          | Technology                                |
-| -------------- | ----------------------------------------- |
-| Runtime        | Bun / Node.js (18+)                       |
-| HTTP Server    | Hono                                      |
-| API Definition | tRPC + Zod                                |
-| ORM            | Drizzle ORM                               |
-| Auth           | Lucia                                     |
-| CLI Framework  | Custom (bevel CLI)                        |
-| Edge Deploy    | Cloudflare Workers / Vercel Edge          |
-| AI Integration | OpenAI Function Calling Export            |
-| UI             | React + shadcn/ui + Radix + Framer Motion |
+| Layer       | Technology                                |
+| ----------- | ----------------------------------------- |
+| Runtime     | Bun / Node.js (18+)                       |
+| HTTP Server | Hono                                      |
+| ORM         | Drizzle ORM (type-safe SQL)               |
+| Auth        | Lucia (modular, vendor-free)              |
+| CLI         | bevel CLI                                 |
+| Deploy      | Cloudflare Workers / Vercel Edge          |
+| UI          | React + shadcn/ui + Radix + Framer Motion |
+| AI          | OpenAI Function Calling JSON export       |
 
 ---
 
-## 🛠️ Quick Start
+## 🔥 Feature Comparison
 
-```bash
-npx bevel-ts init my-app
-cd my-app
-npm run dev
-npm run ui
-```
-
-Then open `http://localhost:3333` to explore your live API in the Playground UI.
+| Feature         | Bevel.ts          | tRPC       | Express     |
+| --------------- | ----------------- | ---------- | ----------- |
+| Type Safety     | ✅ Full (Zod + TS) | ✅ Full     | ❌ None      |
+| API Design      | Intent-based      | RPC        | REST/manual |
+| LLM Integration | ✅ Built-in        | ❌          | ❌           |
+| Edge Readiness  | ✅ Out-of-the-box  | ⚠️ Partial | ⚠️ Limited  |
+| ORM + Auth      | ✅ Drizzle + Lucia | ❌          | ❌           |
+| Playground / DX | ✅ Built-in UI     | ❌          | ❌           |
 
 ---
 
 ## 📦 Use Cases
 
-* Headless SaaS APIs with real structure
-* LLM tools that require callable endpoints
-* Internal tools with strict typing
-* Edge-ready microservices
+* Build **LLM tools** with real APIs
+* Launch **typed internal tools** at lightspeed
+* Create **Edge-ready SaaS backends**
+* Replace messy REST layers with clean intent
 
 ---
 
-## ✫ What Makes Bevel.ts Different?
+## ✫ Philosophy
 
-> "Supabase is SQL. Firebase is events. \*\*Bevel.ts is *intent*."
-
-Bevel.ts isn't just another tool — it's a **philosophy of backend clarity**.
-
-✫ **BeasBeaver** reminds us: structure matters, intent matters, and building strong backends should be joyful.
-
-We believe backends should be expressive, composable, and AI-friendly. Bevel.ts is here to bring clarity and purpose to modern backend development.
+> 🧠 **Bevel.ts is backend as language.**
+>
+> We believe backends are not just infrastructure — they are *interfaces of intent*.
+> With Bevel.ts, you express what your system *means to do*, and your architecture reflects that — clearly, structurally, and type-safely.
+>
+> It’s not about routes. Not about servers.
+> It’s about **declaring meaning** — and letting that become your API.
 
 ---
 
-## ⭐ Star Us
+## ⭐ Ready to rethink backends?
 
-If you believe in type-driven APIs, AI-native architecture, and DX-first frameworks — [star Bevel.ts on GitHub](https://github.com/Bevel-ts/Bevel.ts) and help us build the future of backends.
+Star [Bevel.ts on GitHub](https://github.com/Bevel-ts/Bevel.ts) and help shape the future of API design.
+
+Let’s build APIs the way Beavers build dams:
+with precision, intent, and elegance. ✫
+
+---
+
+## 📌 Appendix
+
+> Want to contribute, extend or deploy to production?
+> See [`docs/`](/docs) or join our Discord for dev discussions.
