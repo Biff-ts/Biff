@@ -2,6 +2,7 @@
 
 **Type-Safe APIs. Intent-Driven Design. LLM-Ready.**
 
+
 [⭐ Star us on GitHub](https://github.com/Bevel-ts/Bevel.ts) if you believe backends should be expressive, composable, and AI-native.
 
 Bevel.ts is a modern backend framework that turns *intent* into production-ready APIs — instantly.
@@ -21,6 +22,8 @@ cd my-app
 npm install
 npm run dev
 npm run ui
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/OQoZXf?referralCode=bevel)
+
 ```
 
 Then open [`http://localhost:5173`](http://localhost:5173) to explore your API live in the Playground UI.
