@@ -23,7 +23,7 @@ npm run dev
 npm run ui
 ```
 
-Then open [`http://localhost:3333`](http://localhost:3333) to explore your API live in the Playground UI.
+Then open [`http://localhost:5173`](http://localhost:5173) to explore your API live in the Playground UI.
 
 ---
 
