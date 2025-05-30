@@ -1,11 +1,15 @@
-# 🦫　Bevel.ts
+# ✫ Bevel.ts
 
 **Type-Safe APIs. Intent-Driven Design. LLM-Ready.**
+
+[⭐ Star us on GitHub](https://github.com/Bevel-ts/Bevel.ts) if you believe backends should be expressive, composable, and AI-native.
 
 Bevel.ts is a modern backend framework that turns *intent* into production-ready APIs — instantly.
 Define what your system should do, and let Bevel.ts generate the type-safe, scalable, and AI-compatible infrastructure for it.
 
 > ✨ You define the "what" — Bevel.ts handles the "how".
+
+![Bevel Playground Screenshot](./docs/Playground.jpeg)
 
 ---
 
@@ -83,7 +87,7 @@ Integrates with GPT-4o, Claude, LangChain, or any agent framework in seconds.
 
 ---
 
-## 🔪 Tech Stack
+## 🛡 Tech Stack
 
 | Layer       | Technology                                |
 | ----------- | ----------------------------------------- |
@@ -134,14 +138,14 @@ Integrates with GPT-4o, Claude, LangChain, or any agent framework in seconds.
 
 ## ⭐ Ready to rethink backends?
 
-Star [Bevel.ts on GitHub](https://github.com/Bevel-ts/Bevel.ts) and help shape the future of API design.
+[🌟 Star us on GitHub](https://github.com/Bevel-ts/Bevel.ts) if you believe in type-safe, AI-native, intent-based backend design.
 
 Let’s build APIs the way Beavers build dams:
 with precision, intent, and elegance. ✫
 
 ---
 
-## 📌 Appendix
+## 📎 Appendix
 
 > Want to contribute, extend or deploy to production?
 > See [`docs/`](/docs) or join our Discord for dev discussions.
