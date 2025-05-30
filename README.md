@@ -100,7 +100,7 @@ Integrates with GPT-4o, Claude, LangChain, or any agent framework in seconds.
 | ORM         | Drizzle ORM (type-safe SQL)               |
 | Auth        | Lucia (modular, vendor-free)              |
 | CLI         | bevel CLI                                 |
-| Deploy      | Cloudflare Workers / Vercel Edge          |
+| Deploy      | Render          |
 | UI          | React + shadcn/ui + Radix + Framer Motion |
 | AI          | OpenAI Function Calling JSON export       |
 
