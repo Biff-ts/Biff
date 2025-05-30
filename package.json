@@ -1,6 +1,6 @@
 {
   "name": "bevel-ts",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "The intent-driven, LLM-native backend framework",
   "type": "module",
   "bin": {
