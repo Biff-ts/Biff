@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: bevel-playground
-    env: node
-    plan: free
-    buildCommand: bun install
-    startCommand: bun run dev
-    repo: https://github.com/Bevel-ts/Bevel.ts
-    branch: main
