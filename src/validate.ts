@@ -60,3 +60,28 @@ function formatZodError(err: any) {
     body: { error: 'Unknown validation error' },
   };
 }
+export function validateOutput(mod: any, data: any): null | { status: number; body: any } {
+  if (!mod.output) return null;
+
+  try {
+    mod.output.parse(data);
+    return null;
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return {
+        status: 500,
+        body: {
+          error: 'Output schema validation failed',
+          details: err.errors.map(e => ({
+            field: e.path.join('.'),
+            message: e.message,
+          })),
+        },
+      };
+    }
+    return {
+      status: 500,
+      body: { error: 'Unknown output validation error' },
+    };
+  }
+}

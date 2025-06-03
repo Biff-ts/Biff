@@ -2,6 +2,8 @@ import { serve } from 'bun';
 import { scanRoutes } from './src/router';
 import { watch } from 'fs';
 import { parseInput } from './src/validate';
+import { TypestError } from './src/errors';
+import { validateOutput } from './src/validate';
 
 let routes = scanRoutes();
 console.log(routes);
@@ -66,17 +68,33 @@ const mod = await import(`./${route.filePath}`);
 
         const { input, error } = await parseInput(mod, req, params);
 
-        if (error) {
-          return new Response(JSON.stringify(error.body), {
-            status: error.status,
-            headers: { 'Content-Type': 'application/json' }
-          });
-        }
+ try {
+  const result = await route.handler({ input });
 
-        const result = await route.handler({ input });
-        return new Response(JSON.stringify(result), {
-          headers: { 'Content-Type': 'application/json' }
-        });
+  const outputError = validateOutput(mod, result);
+  if (outputError) {
+    return new Response(JSON.stringify(outputError.body), {
+      status: outputError.status,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  return new Response(JSON.stringify(result), {
+    headers: { 'Content-Type': 'application/json' }
+  });
+} catch (err) {
+  if (err instanceof TypestError) {
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: err.status,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  } else {
+    return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+}
       }
     }
 
