@@ -1,9 +1,0 @@
-import { {{Name}}Output } from "../schemas/{{name}}.schema";
-
-export const {{name}}Service = {
-  get: async (): Promise<{{Name}}Output[]> => {
-    return [
-      { id: "1", title: "サンプル" }
-    ];
-  }
-};
