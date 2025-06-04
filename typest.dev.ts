@@ -6,7 +6,10 @@ import { TypestError } from './src/errors';
 import { validateOutput } from './src/validate';
 
 let routes = scanRoutes();
-console.log(routes);
+console.log('🛠️ Debug: Scanned Routes');
+for (const r of routes) {
+  console.log(`[${r.method}] ${r.path} → ${r.filePath}`);
+}
 
 function reloadRoutes() {
   try {

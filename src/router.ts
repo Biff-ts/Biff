@@ -5,16 +5,18 @@ export type RouteHandler = {
   path: string;
   method: string;
   handler: Function;
+  filePath: string; // Added filePath property
 };
 
 export function scanRoutes(dir = 'routes'): RouteHandler[] {
+    
   const routes: RouteHandler[] = [];
-
   function walk(current: string, base = '') {
     const full = join(dir, current);
     const stat = statSync(full);
+    
 
-    if (stat.isDirectory()) {
+    if (current.endsWith('.ts') && !current.endsWith('.test.ts') && !current.includes('__test__') && stat.isDirectory()) {
       for (const file of readdirSync(full)) {
         walk(join(current, file), join(base, file));
       }
