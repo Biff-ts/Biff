@@ -1,6 +1,6 @@
 # typest.ts
 
-### The Fully-Typed Backend Framework for the Next.js Era
+### Edge,Bun,Next.js Native Framework
 
 ---
 
