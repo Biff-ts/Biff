@@ -7,13 +7,7 @@
 	"name": "boff-edge",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-06-06",
-	"node_compat": false,
-	"NODE_ENV": "development",
-	"binding": "DB",
-	"database_name": "boff-edge-db",
-	"database_id": "xxxx-xxxx",
-	"port": 8787,
-	"local_protocol": "http",
+
 
 	"observability": {
 		"enabled": true
