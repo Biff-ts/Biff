@@ -12,6 +12,9 @@
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.8.19",
 		"@hono/node-server": "^1.14.3",
+		"@types/node": "^22.15.30",
+		"better-sqlite3": "^11.10.0",
+		"drizzle-kit": "^0.31.1",
 		"typescript": "^5.5.2",
 		"vitest": "~3.0.7",
 		"wrangler": "^4.19.1"
@@ -20,6 +23,7 @@
 		"@hono/trpc-server": "^0.3.4",
 		"@trpc/client": "^11.3.1",
 		"@trpc/server": "^11.3.1",
+		"drizzle-orm": "^0.44.2",
 		"hono": "^4.7.11",
 		"zod": "^3.25.56"
 	}

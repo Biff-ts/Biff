@@ -1,0 +1,7 @@
+name = "boff-edge"
+compatibility_date = "2025-06-06"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "boff-edge-db"
+database_id = "119e9486-c312-4670-9b7b-7f54e1c39019"
