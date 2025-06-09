@@ -1,6 +1,13 @@
 # Tirne
 
-> A structured, minimal web framework for Bun. Go-like control, Bun-native speed, zero boilerplate.
+![bun](https://img.shields.io/badge/Runtime-Bun-%23000000?logo=bun\&logoColor=white)
+![version](https://img.shields.io/npm/v/tirne)
+![license](https://img.shields.io/npm/l/tirne)
+![tests](https://img.shields.io/github/actions/workflow/status/your-org/tirne/test.yml?label=Tests)
+![code style](https://img.shields.io/badge/Code%20Style-Prettier-%23ff69b4?logo=prettier)
+![stars](https://img.shields.io/github/stars/your-org/tirne?style=social)
+
+> Tirne — from Old English “structure, strength” — a minimal web framework for Bun with Go-like control and zero boilerplate.
 
 ---
 
@@ -127,19 +134,21 @@ A web framework should be your toolbox, not your leash. Tirne follows five unapo
 
 ---
 
-## 🔍 Comparison: Tirne vs Hono vs Elysia
+## 🔍 Tirne vs Hono vs Elysia — Key Differences
 
-| Feature             | **Tirne**                          | **Hono**                     | **Elysia**                              |
-| ------------------- | ---------------------------------- | ---------------------------- | --------------------------------------- |
-| Routing             | Minimal, explicit function array   | Chainable, expressive syntax | Decorator-friendly, pluginable          |
-| Middleware          | Go-style, pure function-based      | Built-in, familiar           | Plugin/macro heavy                      |
-| Type Safety         | Lightweight, inferred              | Strong with constraints      | Advanced, macro-driven                  |
-| Error Handling      | `Result<T, E>` + manual control    | `throw` or middleware        | `try/catch` with `set.error()`          |
-| Response Helpers    | `json()`, `error()` - minimal      | `c.json()` etc.              | `set.response()` - more magic           |
-| Fetch Compatibility | ✅ Bun / Node / Workers / Deno      | ✅ Bun / Node / Workers       | ❌ Bun only (for now)                    |
-| Philosophy          | Go-inspired, structure over syntax | Express-like DX              | Full-stack, type-first + tooling-heavy  |
-| Dependencies        | **0 (no external deps)**           | **1 (hono)**                 | **Dozens (valibot, macros, swc, etc.)** |
-| Ideal For           | Server logic, edge apps, CLI APIs  | Web APIs with good DX        | Type-centric apps with heavy tooling    |
+| Axis            | **Tirne ✨**                          | **Hono 🌿**                                        | **Elysia 🧠**                            |
+| --------------- | ------------------------------------ | -------------------------------------------------- | ---------------------------------------- |
+| Philosophy      | Structure and control (Go-inspired)  | Developer Experience and simplicity (Express-like) | Type-centric & macro-driven (type-first) |
+| Routing         | Function array (explicit structure)  | `app.get("/foo")` chaining style                   | `app.get("/foo", {...})` with macros     |
+| Middleware      | `compose(fn[])` explicit composition | `app.use()` global style                           | `onBeforeHandle` and plugin/macro-driven |
+| Type Safety     | Lightweight, composable              | Medium (some constraints)                          | Super strong, but complex                |
+| Response API    | `json()`, `error()` as return values | `c.json()`, `c.text()` methods                     | `set.response()` — implicit injection    |
+| Extensibility   | Functional middleware composition    | Plugin-based                                       | Decorator & macro-based                  |
+| Dependencies    | 🟢 Zero (100% custom)                | 🟡 Lightweight (just Hono)                         | 🔴 Many (valibot, macros, swc, etc.)     |
+| Runtime Support | ✅ Bun / Node / Workers               | ✅ Bun / Node / Workers                             | ❌ Bun-only (not Deno-compatible)         |
+| Ideal Users     | Go developers / Bun engineers        | Express graduates / DX lovers                      | TypeScript-heavy / type maximalists      |
+
+Tirne is for those who value **explicit control, minimalism, and portability** over magic or tooling complexity.
 
 Tirne keeps things **predictable, portable, and programmable** — not magic-driven.
 
@@ -163,7 +172,7 @@ To use in Workers or Deno:
 
 ---
 
-## 🧪 Use Cases
+## 🤍 Use Cases
 
 Tirne is ideal for:
 
@@ -174,22 +183,26 @@ Tirne is ideal for:
 
 ---
 
-## 🌐 Community & Contribution
+## 🌟 Support Tirne
 
-We welcome contributions!
+If you find **Tirne** useful — elegant, minimal, and empowering — consider giving it a ⭐️ on [GitHub](https://github.com/your-org/tirne).
 
-* Development: `bun run dev` or `bun --watch index.ts`
-* Pull requests: Welcome for bug fixes, test coverage, features
-* Discussions: Coming soon (via GitHub Discussions)
+> Every star helps us reach more developers who believe in control over complexity, structure over magic.
+> Your support fuels future features, better docs, and faster performance.
 
-> See `CONTRIBUTING.md` for setup guidelines (WIP)
-
----
-
-## 💼 Badges (coming soon)
+Thank you for being part of the minimalist web revolution.
 
 ---
 
 ## 📜 License
 
 MIT
+
+## 💼 Badges 
+![bun](https://img.shields.io/badge/Runtime-Bun-%23000000?logo=bun&logoColor=white)
+![version](https://img.shields.io/npm/v/tirne)
+![license](https://img.shields.io/npm/l/tirne)
+![tests](https://img.shields.io/github/actions/workflow/status/your-org/tirne/test.yml?label=Tests)
+![code style](https://img.shields.io/badge/Code%20Style-Prettier-%23ff69b4?logo=prettier)
+![stars](https://img.shields.io/github/stars/your-org/tirne?style=social)
+

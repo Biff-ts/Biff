@@ -30,5 +30,8 @@
   "devDependencies": {
     "@types/node": "^22.15.30",
     "bun-types": "^1.2.15"
+  },
+  "dependencies": {
+    "bun": "^1.2.15"
   }
 }
