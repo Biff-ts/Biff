@@ -185,7 +185,7 @@ Tirne is ideal for:
 
 ## 🌟 Support Tirne
 
-If you find **Tirne** useful — elegant, minimal, and empowering — consider giving it a ⭐️ on [GitHub](https://github.com/your-org/tirne).
+If you find **Tirne** useful — elegant, minimal, and empowering — consider giving it a ⭐️ on [GitHub](https://github.com/Tirne-ts/Tirne).
 
 > Every star helps us reach more developers who believe in control over complexity, structure over magic.
 > Your support fuels future features, better docs, and faster performance.
@@ -203,5 +203,5 @@ MIT
 ![version](https://img.shields.io/npm/v/Tirne)
 ![license](https://img.shields.io/npm/l/Tirne)
 ![code style](https://img.shields.io/badge/Code%20Style-Prettier-%23ff69b4?logo=prettier)
-![stars](https://img.shields.io/github/stars/Tirne-ts/Tirne?style=social)
+
 
