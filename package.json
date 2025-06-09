@@ -1,0 +1,30 @@
+{
+  "name": "tirne",
+  "version": "0.1.0",
+  "description": "Minimal and structured web framework for Bun. Go-inspired, function-first.",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist && tsc --emitDeclarationOnly",
+    "dev": "bun --watch index.ts"
+  },
+  "keywords": [
+    "bun",
+    "framework",
+    "minimal",
+    "router",
+    "go",
+    "web"
+  ],
+  "author": "Yuki Nishikawa",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.15.30"
+  }
+}
