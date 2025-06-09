@@ -1,6 +1,6 @@
 {
   "name": "tirne",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Minimal and structured web framework for Bun. Go-inspired, function-first.",
   "exports": {
     ".": {
@@ -22,9 +22,13 @@
     "go",
     "web"
   ],
+  "files": [
+    "dist"
+  ],
   "author": "Yuki Nishikawa",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^22.15.30"
+    "@types/node": "^22.15.30",
+    "bun-types": "^1.2.15"
   }
 }

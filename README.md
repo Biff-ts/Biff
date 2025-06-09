@@ -4,11 +4,12 @@
 
 ---
 
-## 🚀 Quickstart (Hono-style)
+## 🚀 Quickstart
 
 Tirne is the fastest way to build **typed, structured** web APIs and apps using Bun — with Go-like patterns, no magic, and full control.
 
 ```bash
+bun init
 bun add tirne
 ```
 
