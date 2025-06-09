@@ -200,9 +200,8 @@ MIT
 
 ## 💼 Badges 
 ![bun](https://img.shields.io/badge/Runtime-Bun-%23000000?logo=bun&logoColor=white)
-![version](https://img.shields.io/npm/v/tirne)
-![license](https://img.shields.io/npm/l/tirne)
-![tests](https://img.shields.io/github/actions/workflow/status/your-org/tirne/test.yml?label=Tests)
+![version](https://img.shields.io/npm/v/Tirne)
+![license](https://img.shields.io/npm/l/Tirne)
 ![code style](https://img.shields.io/badge/Code%20Style-Prettier-%23ff69b4?logo=prettier)
-![stars](https://img.shields.io/github/stars/your-org/tirne?style=social)
+![stars](https://img.shields.io/github/stars/Tirne-ts/Tirne?style=social)
 
