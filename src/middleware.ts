@@ -1,7 +1,7 @@
 // src/middleware.ts
 
-import type { Context } from "./context";
-import type { Handler } from "./router";
+import type { Context } from "./context.ts";
+import type { Handler } from "./router.ts";
 
 export type Middleware = (
   ctx: Context,

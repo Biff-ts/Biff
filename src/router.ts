@@ -1,4 +1,4 @@
-import { type Context, createContext } from "./context";
+import { type Context, createContext } from "./context.ts";
 
 export type Handler = (ctx: Context) => Response | Promise<Response>;
 
