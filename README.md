@@ -21,19 +21,20 @@ bun add tirne
 
 ```ts
 // index.ts
-import { createRouter, compose, json } from "tirne";
+import { createRouter,json } from "tirne";
 
 const routes = [
   {
     method: "GET",
     path: "/",
-    handler: ({ req }) => json({ message: "Hello, Tirne!" }),
+    handler: ({ }) => json({ message: "Hello, Tirne!" }),
   },
 ];
 
 const router = createRouter(routes);
 
 Bun.serve({ fetch: router });
+console.log("Server is running on http://localhost:3000");
 ```
 
 ```bash
