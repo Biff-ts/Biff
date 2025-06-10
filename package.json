@@ -1,6 +1,6 @@
 {
   "name": "tirne",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Minimal and structured web framework for Bun. Go-inspired, function-first.",
   "exports": {
     ".": {

@@ -1,7 +1,7 @@
-// src/index.ts
-export * from "./router";
-export * from "./context";
-export * from "./middleware";
-export * from "./response";
-export * from "./result";
-export * from "./parallel";
+// mod.ts
+export * from "./router.ts";
+export * from "./context.ts";
+export * from "./middleware.ts";
+export * from "./response.ts";
+export * from "./result.ts";
+export * from "./parallel.ts";
