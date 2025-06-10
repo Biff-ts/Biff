@@ -11,9 +11,14 @@ export type Context = {
   env: Record<string, string>;
 };
 
+/**
+ * ランタイム非依存な Context を生成します。
+ * `env` は Node.js なら process.env、Workers なら Binding を渡してください。
+ */
 export function createContext(
   req: Request,
-  params: Record<string, string>
+  params: Record<string, string>,
+  env: Record<string, string> = {}
 ): Context {
   const url = new URL(req.url);
   return {
@@ -24,8 +29,6 @@ export function createContext(
     params,
     query: url.searchParams,
     signal: req.signal,
-    env: Object.fromEntries(
-      Object.entries(process.env).filter(([_, value]) => value !== undefined) as [string, string][]
-    ),
+    env,
   };
 }
