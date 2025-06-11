@@ -1,9 +1,10 @@
 # Tirne
-
+![Deno](https://img.shields.io/badge/Runtime-Deno-000000?logo=deno&logoColor=black)
+![node](https://img.shields.io/badge/Runtime-Node.js-43853d?logo=node.js&logoColor=green)
+![Cloudflare Workers](https://img.shields.io/badge/Runtime-Workers-F38020?logo=cloudflare&logoColor=white)
 ![bun](https://img.shields.io/badge/Runtime-Bun-%23000000?logo=bun\&logoColor=white)
 ![version](https://img.shields.io/npm/v/tirne)
 ![license](https://img.shields.io/npm/l/tirne)
-![code style](https://img.shields.io/badge/Code%20Style-Prettier-%23ff69b4?logo=prettier)
 ![stars](https://img.shields.io/github/stars/Tirne-ts/tirne?style=social)
 
 > Tirne — from Old English “structure, strength” — a minimal web framework for Bun with Go-like control and zero boilerplate.
