@@ -9,11 +9,21 @@
 > Tirne — from Old English “structure, strength” — a minimal web framework for Bun with Go-like control and zero boilerplate.
 
 ---
+> 🚀 Tirne has been featured in [this article on DEV.to](https://dev.to/yukinisihikawa/tirne-the-explicit-go-inspired-web-framework-for-bun-nodedeno-and-workers-2igi),  
+> where it received early reactions from:
+
+- [Ben Halpern](https://dev.to/ben) (Founder of DEV.to & Forem)
+- [Nathan Tarbert](https://dev.to/nathant)
+- [Nevo David](https://dev.to/nevodavid)
+
+We're grateful for the attention and using the feedback to guide the next iterations.
 
 ---
 
 > 📣 Minimalist? Bun enthusiast? OSS fan?  
-> 👉 [Star Tirne on GitHub](https://github.com/Tirne-ts/Tirne) — Let’s kill the magic together.
+> 👉 [Star Tirne on GitHub](https://github.com/Tirne-ts/Tirne)  
+We’re building a no-magic, Go-style framework for the Bun/TS world — and your star helps shape its future.
+
 
 ---
 
