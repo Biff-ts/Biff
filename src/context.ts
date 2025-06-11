@@ -2,12 +2,12 @@
 
 export type Context = {
   req: Request;
-  url: URL;
+  url: typeof URL;
   method: string;
   headers: Headers;
   params: Record<string, string>;
   query: URLSearchParams;
-  signal: AbortSignal;
+  signal: typeof AbortSignal;
   env: Record<string, string>;
 };
 

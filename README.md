@@ -10,6 +10,13 @@
 
 ---
 
+---
+
+> 📣 Minimalist? Bun enthusiast? OSS fan?  
+> 👉 [Star Tirne on GitHub](https://github.com/Tirne-ts/Tirne) — Let’s kill the magic together.
+
+---
+
 ## 🚀 Quickstart
 
 Tirne is the fastest way to build **typed, structured** web APIs and apps using Bun — with Go-like patterns, no magic, and full control.
@@ -183,16 +190,16 @@ Tirne is ideal for:
 
 ---
 
-## 🌟 Support Tirne
+## 💥 Ready to Write Real Code Again?
 
-If you find **Tirne** useful — elegant, minimal, and empowering — consider giving it a ⭐️ on [GitHub](https://github.com/Tirne-ts/Tirne).
+> 🚀 If you’re tired of magic, macros, and monoliths — try Tirne.
+>  
+> 👉 **[⭐️ Star on GitHub](https://github.com/Tirne-ts/Tirne)** to join the movement.
 
-> Every star helps us reach more developers who believe in control over complexity, structure over magic.
-> Your support fuels future features, better docs, and faster performance.
-
-Thank you for being part of the minimalist web revolution.
+[![GitHub Stars](https://img.shields.io/github/stars/Tirne-ts/tirne?style=social)](https://github.com/Tirne-ts/Tirne)
 
 ---
+
 
 ## 📜 License
 
