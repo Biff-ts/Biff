@@ -9,5 +9,6 @@
     "test": "deno test --allow-net",
     "lint": "deno lint",
     "fmt": "deno fmt"
-  }
+  },
+    "exclude": ["dist"]
 }
