@@ -2,6 +2,8 @@
   "name": "tirne",
   "version": "0.1.5",
   "description": "Minimal and structured web framework for Bun. Go-inspired, function-first.",
+    "type": "module",
+
   "exports": {
     ".": {
       "import": "./dist/index.js",
