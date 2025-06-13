@@ -30,41 +30,47 @@ We’re building a no-magic, Go-style framework for the Bun/TS world — and you
 
 ## 🚀 Quickstart
 
-Tirne is the fastest way to build **typed, structured** web APIs and apps using Bun — with Go-like patterns, no magic, and full control.
 
 ```bash
-bun init
-bun add tirne
+npx create-tirne-app
 ```
+<p align="center"> <img src="./assets/terminal-setup.png" width="500" alt="Tirne setup terminal screenshot"> </p> 
+Choose your environment:
 
-```ts
-// index.ts
-import { createRouter,json } from "tirne";
+* **Bun**
+* **Deno**
+* **Cloudflare Workers**
+* **Netlify Edge Functions**
 
-const routes = [
-  {
-    method: "GET",
-    path: "/",
-    handler: ({ }) => json({ message: "Hello, Tirne!" }),
-  },
-];
+This command sets up a ready-to-run Tirne project in seconds.
 
-const router = createRouter(routes);
-
-Bun.serve({ fetch: router });
-console.log("Server is running on http://localhost:3000");
-```
-
-```bash
-bun run index.ts
-```
-
-You're now running a structured, typed, Bun-native web server. No scaffold, no CLI, no boilerplate.
-
-> 💡 Works on **Bun**, **Node.js (via adapter)**, and **Cloudflare Workers (via fetch-compatible API)**.
+📣 **Love minimal tools that get out of your way?**
+Star the main Tirne repo: [https://github.com/Tirne-ts/Tirne](https://github.com/Tirne-ts/Tirne)
 
 ---
 
+## 📁 What You Get
+
+A zero-boilerplate project, tailored for your runtime:
+
+* `index.ts` with a working router and a `/` endpoint
+* Runtime config files (`bunfig.toml`, `deno.json`, `wrangler.toml`)
+* `package.json` with minimal scripts and dependencies
+
+Example output:
+
+```bash
+✔ Choose your target environment: › Bun
+✔ Project folder: › my-tirne-app
+
+✅ Tirne app created in 'my-tirne-app'
+
+Next steps:
+
+  cd my-tirne-app
+  bun install       # or npm install
+  bun run dev       # or wrangler dev / deno task dev
+```
 ## 🔧 Philosophy
 
 Tirne is built on 5 core principles:
