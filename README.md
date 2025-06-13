@@ -69,8 +69,11 @@ Next steps:
 
   cd my-tirne-app
   bun install       # or npm install
-  bun run dev       # or wrangler dev / deno task dev
+  bun run dev       # or wrangler dev / deno task dev / netlify dev
 ```
+
+---
+
 ## 🔧 Philosophy
 
 Tirne is built on 5 core principles:
@@ -169,7 +172,7 @@ A web framework should be your toolbox, not your leash. Tirne follows five unapo
 | Response API    | `json()`, `error()` as return values | `c.json()`, `c.text()` methods                     | `set.response()` — implicit injection    |
 | Extensibility   | Functional middleware composition    | Plugin-based                                       | Decorator & macro-based                  |
 | Dependencies    | 🟢 Zero (100% custom)                | 🟡 Lightweight (just Hono)                         | 🔴 Many (valibot, macros, swc, etc.)     |
-| Runtime Support | ✅ Bun / Node / Workers               | ✅ Bun / Node / Workers                             | ❌ Bun-only (not Deno-compatible)         |
+| Runtime Support | ✅ Bun / Deno / Workers/ Netlify     | ✅ Bun / Node / Workers                             | ❌ Bun-only (not Deno-compatible)         |
 | Ideal Users     | Go developers / Bun engineers        | Express graduates / DX lovers                      | TypeScript-heavy / type maximalists      |
 
 Tirne is for those who value **explicit control, minimalism, and portability** over magic or tooling complexity.
@@ -184,7 +187,7 @@ Tirne keeps things **predictable, portable, and programmable** — not magic-dri
 bun add tirne
 ```
 
-To use in Node.js:
+To use in Workers :
 
 ```bash
 npm install tirne
