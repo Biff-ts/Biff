@@ -1,30 +1,39 @@
-export type Context = {
+/// <reference lib="dom" />
+
+
+export type Context<Env = {}> = {
   req: Request;
-  url: InstanceType<typeof URL>;
+  url: URL;
   method: string;
   headers: Headers;
-  params: Record<string, string>;
   query: URLSearchParams;
-  signal: InstanceType<typeof AbortSignal>;
-  env: Record<string, string>;
+  params: Record<string, string>;
+  signal: AbortSignal;
+  env: Env;
 };
 
-
-export function createContext(
+export function createContext<Env = {}>(
   req: Request,
-  params: Record<string, string>,
-  env: Record<string, string> = {}
-): Context {
+  options: {
+    params?: Record<string, string>;
+    env?: Env;
+  } = {}
+): Context<Env> {
   const url = new URL(req.url);
+
+  // 明示的: AbortSignal を信頼し、無理に fallback しない
+  const signal = "signal" in req && req.signal
+    ? req.signal
+    : undefined;
 
   return {
     req,
     url,
     method: req.method,
     headers: req.headers,
-    params,
     query: url.searchParams,
-    signal: req.signal ?? AbortSignal.timeout?.(10_000) ?? new AbortController().signal, // 保険でfallback
-    env,
+    params: options.params ?? {},
+    signal: signal ?? new AbortController().signal,
+    env: options.env ?? ({} as Env),
   };
 }

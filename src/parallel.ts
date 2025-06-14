@@ -1,15 +1,44 @@
 // src/parallel.ts
 
-export type TaskHandle<T = unknown> = {
-  promise: Promise<T>;
+export type ParallelTask<T> = {
+  id: string;
+  start: () => void;
+  result: Promise<T>;
+  cancel?: () => void;
 };
 
-export function runParallel<T>(fn: () => T | Promise<T>): TaskHandle<T> {
-  return {
-    promise: Promise.resolve().then(fn),
+// 明示的に「後で開始できる」並列実行
+export function createTask<T>(
+  fn: () => T | Promise<T>,
+  id: string,
+  signal?: AbortSignal
+): ParallelTask<T> {
+  let resolve!: (value: T) => void;
+  let reject!: (reason: unknown) => void;
+
+  const result = new Promise<T>((res, rej) => {
+    resolve = res;
+    reject = rej;
+  });
+
+  let started = false;
+
+  const start = () => {
+    if (started) return;
+    started = true;
+
+    Promise.resolve()
+      .then(fn)
+      .then(resolve)
+      .catch(reject);
   };
+
+  return { id, start, result };
 }
 
-export async function waitAll(handles: TaskHandle[]): Promise<unknown[]> {
-  return Promise.all(handles.map(h => h.promise));
+// 正確な型推論付き waitAll
+export async function waitAll<T extends readonly ParallelTask<any>[]>(
+  tasks: T
+): Promise<{ [K in keyof T]: T[K] extends ParallelTask<infer R> ? R : never }> {
+  return Promise.all(tasks.map(t => t.result)) as any;
 }

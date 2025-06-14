@@ -7,6 +7,7 @@
 ![license](https://img.shields.io/npm/l/tirne)
 ![stars](https://img.shields.io/github/stars/Tirne-ts/tirne?style=social)
 
+
 > Tirne — from Old English “structure, strength” — a minimal web framework for Bun with Go-like control and zero boilerplate.
 
 ---
@@ -69,7 +70,7 @@ Next steps:
 
   cd my-tirne-app
   bun install       # or npm install
-  bun run dev       # or wrangler dev / deno task dev / netlify dev
+  npm run dev       # or wrangler dev / deno task dev / netlify dev
 ```
 
 ---
