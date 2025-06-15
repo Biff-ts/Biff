@@ -11,7 +11,7 @@ export type ParallelTask<T> = {
 export function createTask<T>(
   fn: () => T | Promise<T>,
   id: string,
-  signal?: AbortSignal
+  signal?: typeof AbortSignal
 ): ParallelTask<T> {
   let resolve!: (value: T) => void;
   let reject!: (reason: unknown) => void;

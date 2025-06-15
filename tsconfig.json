@@ -6,6 +6,13 @@
     "lib": ["DOM", "ESNext"],
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+
+    "outDir": "dist",               // 🍭 出力先ディレクトリ
+    "rootDir": "src",               // 📁 ソースコードのルート
+    "declaration": true,            // 型定義を出したいなら
+    "emitDeclarationOnly": false    // 実装コードも出す場合は false または省略
+  },
+  "include": ["src/**/*"],          // 🎯 コンパイル対象
+  "exclude": ["node_modules"]       // 🧹 無視したいディレクトリ
 }

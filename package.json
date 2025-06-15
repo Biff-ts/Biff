@@ -1,6 +1,6 @@
 {
   "name": "tirne",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Minimal and structured web framework for Bun. Go-inspired, function-first.",
   "type": "module",
   "exports": {
@@ -17,7 +17,9 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "bun build src/index.ts --outdir dist && tsc --emitDeclarationOnly",
-    "dev": "bun --watch index.ts"
+    "dev": "bun --watch index.ts",
+        "postbuild": "rimraf src/**/*.d.ts"
+
   },
   "keywords": [
     "bun",
@@ -33,8 +35,10 @@
   "author": "Yuki Nishikawa",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@types/bun": "^1.2.16",
     "@types/node": "^22.15.30",
-    "bun-types": "^1.2.15"
+    "bun-types": "^1.2.15",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "bun": "^1.2.15"
