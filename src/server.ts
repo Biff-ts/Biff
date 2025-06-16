@@ -1,35 +1,55 @@
 import { Handler, Middleware, composeMiddleware } from "./middleware";
+import { matchPath } from "./router";
 
 export interface Route {
   method: string;
   path: string;
   handler: Handler;
+  middleware?: Middleware[];
 }
 
 export class Server {
   private routes: Route[];
-  private middleware: Middleware[] = [];
+  private globalMiddleware: Middleware[] = [];
 
   constructor(routes: Route[]) {
     this.routes = routes;
   }
 
   use(mw: Middleware) {
-    this.middleware.push(mw);
+    this.globalMiddleware.push(mw);
   }
 
   async fetch(req: Request): Promise<Response> {
     const url = new URL(req.url);
-    const route = this.routes.find(
-      (r) => r.method === req.method && r.path === url.pathname
-    );
+    const path = url.pathname;
+    const method = req.method;
+
+    let matchedRoute: Route | undefined;
+    let params: Record<string, string> = {};
+
+    for (const route of this.routes) {
+      if (route.method !== method) continue;
+      const result = matchPath(route.path, path);
+      if (result.matched) {
+        matchedRoute = route;
+        params = result.params;
+        break;
+      }
+    }
 
     const finalHandler: Handler = async (req) => {
-      if (route) return route.handler(req);
+      if (matchedRoute) {
+        return matchedRoute.handler(req, params);
+      }
       return new Response("Not Found", { status: 404 });
     };
 
-    const composedHandler = composeMiddleware(this.middleware, finalHandler);
-    return composedHandler(req);
+    const allMiddleware = matchedRoute?.middleware
+      ? [...this.globalMiddleware, ...matchedRoute.middleware]
+      : this.globalMiddleware;
+
+    const composed = composeMiddleware(allMiddleware, finalHandler);
+    return composed(req);
   }
 }

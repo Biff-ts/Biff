@@ -3,7 +3,8 @@
 import { json } from "./util";
 
 /** 基本ハンドラ型 */
-export type Handler = (req: Request) => Response | Promise<Response>;
+
+export type Handler = (req: Request, params?: Record<string, string>) => Response | Promise<Response>;
 
 /** ミドルウェア型：next() で次の処理へ */
 export type Middleware = (
@@ -48,7 +49,7 @@ export function composeMiddleware(
       if (index <= i) return Promise.reject(new Error("next() called multiple times"));
       i = index;
       const fn = index < all.length ? all[index] : finalHandler;
-      return Promise.resolve(fn(req, () => dispatch(index + 1)));
+      return Promise.resolve(fn(req, (() => dispatch(index + 1)) as unknown as Record<string, string> & (() => Promise<Response>)));
     };
 
     return dispatch(0);
