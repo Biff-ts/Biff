@@ -1,6 +1,4 @@
 # Tirne
-![Deno](https://img.shields.io/badge/Runtime-Deno-000000?logo=deno&logoColor=black)
-![node](https://img.shields.io/badge/Runtime-Node.js-43853d?logo=node.js&logoColor=green)
 ![Cloudflare Workers](https://img.shields.io/badge/Runtime-Workers-F38020?logo=cloudflare&logoColor=white)
 ![bun](https://img.shields.io/badge/Runtime-Bun-%23000000?logo=bun\&logoColor=white)
 ![version](https://img.shields.io/npm/v/tirne)
@@ -8,7 +6,7 @@
 ![stars](https://img.shields.io/github/stars/Tirne-ts/tirne?style=social)
 
 
-> Tirne — from Old English “structure, strength” — a minimal web framework for Bun with Go-like control and zero boilerplate.
+> Tirne — from Old English “structure, strength” —　structure over boilerplate. A minimal, type-safe web framework for Multi Runtime, with edge-native performance and first-class control of side effects."
 
 ---
 > 🚀 Tirne has been featured in [this article on DEV.to](https://dev.to/yukinisihikawa/tirne-the-explicit-go-inspired-web-framework-for-bun-nodedeno-and-workers-2igi),  
@@ -22,9 +20,10 @@ We're grateful for the attention and using the feedback to guide the next iterat
 
 ---
 
-> 📣 Minimalist? Bun enthusiast? OSS fan?  
+> ⚡ Sub-millisecond APIs. First-class control of side effects.
 > 👉 [Star Tirne on GitHub](https://github.com/Tirne-ts/Tirne)  
-We’re building a no-magic, Go-style framework for the Bun/TS world — and your star helps shape its future.
+Tirne is a declarative, type-safe framework for Bun — designed to make side effects explicit and performance predictable.
+
 
 
 ---
@@ -39,9 +38,7 @@ npx create-tirne-app
 Choose your environment:
 
 * **Bun**
-* **Deno**
 * **Cloudflare Workers**
-* **Netlify Edge Functions**
 
 This command sets up a ready-to-run Tirne project in seconds.
 
@@ -55,7 +52,7 @@ Star the main Tirne repo: [https://github.com/Tirne-ts/Tirne](https://github.com
 A zero-boilerplate project, tailored for your runtime:
 
 * `index.ts` with a working router and a `/` endpoint
-* Runtime config files (`bunfig.toml`, `deno.json`, `wrangler.toml`)
+* Runtime config files (`bunfig.toml`, `wrangler.toml`)
 * `package.json` with minimal scripts and dependencies
 
 Example output:
@@ -70,7 +67,7 @@ Next steps:
 
   cd my-tirne-app
   bun install       # or npm install
-  npm run dev       # or wrangler dev / deno task dev / netlify dev
+  npm run dev (Bun)      # or wrangler dev 
 ```
 
 ---
@@ -78,107 +75,131 @@ Next steps:
 ## 🔧 Philosophy
 
 Tirne is built on 5 core principles:
+E
+1. **Structure as code** — Routes, middleware, and logic are configuration, not behavior. Code is a manifest, not a script.
+2. **Errors are values** — TirneErrors carry type, status, and intent. They are thrown, but not hidden.
+3. **Composition over convention** — Middleware is composed explicitly, and order is part of the contract.
+4. **Types shape behavior** — The structure and safety of your API are defined by its types, not docs.
+5. **Designed for the edge** — Built for Bun, optimized for fetch, born in the millisecond age.
 
-1. **Structure without abstraction** — Everything visible, understandable, no magic.
-2. **Functions over frameworks** — Middleware, handlers, routers are just plain functions.
-3. **Return errors, don’t catch them** — Like Go: errors as values, not exceptions.
-4. **Composition is explicit** — No decorators or global state. Just `compose(middleware[])`.
-5. **Run anywhere** — Bun-native by design, but fetch-compatible for Node, Workers, Deno.
 
 ---
 
 ## ✨ Features
 
-* ✅ Minimal HTTP router with dynamic path support
-* ✅ Go-style middleware composition with full control
-* ✅ First-class context: method, query, params, signal, env
-* ✅ Response helpers: `json()`, `html()`, `text()`, `error()`
-* ✅ Optional `Result<T, E>` pattern for safe error handling
-* ✅ Simple structured parallelism: `runParallel()`, `waitAll()`
-* ✅ Fully fetch-based — runs on **Bun**, **Node**, **Cloudflare Workers**, **Deno**
-* ✅ No CLI, no file structure, no default config — just code
+## ✨ Features
+
+* ✅ **Structure-first routing** — Define your entire API as a single declarative structure
+* ✅ **Composable middleware** — Explicit `compose()` flow, no decorators or global scope
+* ✅ **Structured errors** — Throw `TirneError` with type, status, and visibility
+* ✅ **Built-in response helpers** — `json()`, `html()`, `text()`, `error()`　etc...  — clean and consistent
+* ✅ **Edge-native execution** — Instant cold start & sub-ms response on Bun, Workers, and Deno
+* ✅ **No boilerplate** — No CLI, no config, no directory rules. Just pure code.
+* ✅ **Type-safe by design** — Routes, handlers, errors, all shaped by TypeScript
+
 
 ---
 
-## 🧱 Core Responsibilities (Go-style)
+## ⚡️ Performance Benchmarks
 
-| # | Responsibility         | Description                                      | Go Equivalent               |
-| - | ---------------------- | ------------------------------------------------ | --------------------------- |
-| 1 | Router                 | Static/dynamic route definition, method matching | `http.ServeMux`             |
-| 2 | Middleware Composition | `compose()` to separate and chain concerns       | `http.Handler`              |
-| 3 | Context                | `ctx = { req, res, env, signal, params }`        | `context.Context`           |
-| 4 | Error Handling         | `Result<T, E>` or `handleError()` structure      | `error`, `if err != nil`    |
-| 5 | Response Utility       | `json()`, `html()`, `text()`, `error()`          | `encoding/json`, `template` |
-| 6 | Parallelism            | `runParallel()`, `waitAll()` async control       | `go func()`, `WaitGroup`    |
+All tests were performed using Bun v1.1.0 on an M2 Pro chip (macOS), simulating edge runtime conditions.
+
+| Metric             | Result             | Interpretation |
+|--------------------|--------------------|----------------|
+| ❄️ Cold Start       | `0.02 ms`           | 🧊 Essentially unmeasurable — perfect for edge/fetch-based runtimes |
+| ⚡️ First Request    | `0.79 ms`           | 🚀 Beats the 1ms barrier. Ideal for latency-critical APIs |
+| 🔁 Requests/sec     | `90,489 rps`        | 🔥 Comparable to Hono, surpasses Express by 10x+ |
+| 📉 Avg Latency      | `0.96 ms`           | ⚡ Sub-millisecond under load — suitable for interactive apps |
+| 📦 Throughput       | `10.9 MB/sec`       | 📈 Handles large JSON payloads with ease |
+| 🎯 Total Requests   | `905,000 in 10s`    | 💪 Battle-tested for real-world load |
+
+> ✨ Tirne was designed for edge-first, zero-warmup environments — and these numbers prove it.
 
 ---
 
-## 🧱 Example with Middleware
+## 🧱 Example with Cookie
 
 ```ts
-import { createRouter, compose, json, error } from "tirne";
 
-const logger = async (ctx, next) => {
-  console.log(`[${ctx.method}] ${ctx.url.pathname}`);
-  return await next();
-};
 
-const routes = [
+import { Server,json,setCookie,requireAuth } from "tirne";
+import type { Route } from "tirne";
+
+const routes: Route[] = [
   {
     method: "GET",
-    path: "/",
-    handler: compose([logger], ({ req }) => json({ hello: "Tirne" })),
+    path: "/login",
+    handler: () => {
+      const headers = new Headers();
+      headers.append("Set-Cookie", setCookie("auth", "valid-token", {
+        httpOnly: true,
+        path: "/",
+        maxAge: 3600,
+      }));
+      return json({ message: "Logged in" }, 200, headers);
+    },
+    middleware: [], 
   },
   {
     method: "GET",
-    path: "/fail",
-    handler: () => error("Something went wrong", 500),
+    path: "/private",
+    handler: () => json({ message: "Secret data only for authenticated users" }),
+    middleware: [requireAuth], 
   },
 ];
 
-Bun.serve({ fetch: createRouter(routes) });
+const server = new Server(routes);
+
+
+export default {
+  fetch: (req: Request) => server.fetch(req),
+};
+
+
 ```
 
 ---
 
-## 🔥 Tirne Philosophy – The 5 Articles of Bun-Style Backend
+## 🔥 Tirne Philosophy – The 5 Laws of Structured Simplicity
 
-A web framework should be your toolbox, not your leash. Tirne follows five unapologetically minimal principles:
+A backend should be transparent, fast, and designed like architecture — not like magic. Tirne is built on five modern principles:
 
-1. **No abstractions you can't inline**
-   Don’t hide behind magic. If it can’t be written in 5 lines, it probably shouldn’t exist.
+1. **Structure is the source of truth**  
+   APIs are defined as code, not behavior. No decorators, no conventions — just configuration you can read.
 
-2. **Functions first. Frameworks last**
-   Apps should work without frameworks. Tirne is just the helper, never the master.
+2. **Errors are data, not chaos**  
+   Exceptions carry type, status, and visibility. You don’t catch them — you design them.
 
-3. **Handle failure like a grown-up**
-   No try/catch gymnastics. Return errors like Go. Predictable. Traceable. Safe.
+3. **Composition is everything**  
+   Middleware is composed explicitly. No global state, no stack traces from hell.
 
-4. **Parallelism is a first-class citizen**
-   Use your CPU like a pro. Tirne assumes your code will scale, so it doesn’t get in the way.
+4. **Built for the edge, shaped by types**  
+   Tirne runs instantly on Bun, Workers, and Deno. And your types shape what runs — not your docs.
 
-5. **Zero startup, zero lock-in, zero shame**
-   Start small, stay small if you want. Tirne doesn't force structure or ceremony. One file is enough.
+5. **No bootstraps, no boilerplate, no BS**  
+   One file. No CLI. No hidden magic. What you write is what you deploy.
+
 
 ---
 
 ## 🔍 Tirne vs Hono vs Elysia — Key Differences
 
-| Axis            | **Tirne ✨**                          | **Hono 🌿**                                        | **Elysia 🧠**                            |
-| --------------- | ------------------------------------ | -------------------------------------------------- | ---------------------------------------- |
-| Philosophy      | Structure and control (Go-inspired)  | Developer Experience and simplicity (Express-like) | Type-centric & macro-driven (type-first) |
-| Routing         | Function array (explicit structure)  | `app.get("/foo")` chaining style                   | `app.get("/foo", {...})` with macros     |
-| Middleware      | `compose(fn[])` explicit composition | `app.use()` global style                           | `onBeforeHandle` and plugin/macro-driven |
-| Type Safety     | Lightweight, composable              | Medium (some constraints)                          | Super strong, but complex                |
-| Response API    | `json()`, `error()` as return values | `c.json()`, `c.text()` methods                     | `set.response()` — implicit injection    |
-| Extensibility   | Functional middleware composition    | Plugin-based                                       | Decorator & macro-based                  |
-| Dependencies    | 🟢 Zero (100% custom)                | 🟡 Lightweight (just Hono)                         | 🔴 Many (valibot, macros, swc, etc.)     |
-| Runtime Support | ✅ Bun / Deno / Workers/ Netlify     | ✅ Bun / Node / Workers                             | ❌ Bun-only (not Deno-compatible)         |
-| Ideal Users     | Go developers / Bun engineers        | Express graduates / DX lovers                      | TypeScript-heavy / type maximalists      |
+## 🔍 Tirne vs Hono vs Elysia — Revisited for 2025
 
-Tirne is for those who value **explicit control, minimalism, and portability** over magic or tooling complexity.
+| Axis            | **Tirne ✨**                                      | **Hono 🌿**                                      | **Elysia 🧠**                                 |
+|-----------------|--------------------------------------------------|--------------------------------------------------|----------------------------------------------|
+| **Philosophy**  | Structure and Side Effect Control                | Simplicity and Familiarity                      | Type-maximalism and Decorator DSL            |
+| **Routing**     | Declarative `Route[]` structure                  | Chain-style `app.get("/foo")`                   | Macro-enhanced handler declarations          |
+| **Middleware**  | Explicit `compose([...])`, scoped per route      | Global `app.use()` and nested routers           | Plugin + lifecycle hooks + decorators        |
+| **Error Model** | `TirneError`: structured error with metadata     | `throw` or `return c.text()`                    | `set.status()` with plugin-driven handling   |
+| **Type Safety** | Type-driven config and handlers (`Route<T>`)     | Medium (context-specific typing)                | Extremely strong, but tightly coupled to tools |
+| **Response API**| `json()`, `error()` as pure return values        | `c.json()`, `c.text()` methods                  | `set.response()` side-effectful injections   |
+| **Extensibility**| Middleware and composition primitives           | Plugins with shared context                     | Plugins + Macros + Decorators                |
+| **Dependencies**| 🟢 Zero external runtime deps                    | 🟡 Lightweight                                  | 🔴 Heavy: valibot, macros, SWC, etc.          |
+| **Runtime Support** | ✅ Bun / Workers 　 　　　　　　　　　　　        | ✅ Bun / Node / Workers/ Deno                  | ❌ Bun-only, limited to SWC macro pipelines  |
+| **Ideal Users** | API designers, type-aware minimalists, edge devs| Express/Deno users wanting familiar DX         | TS power users who love macros & decorators  |
 
-Tirne keeps things **predictable, portable, and programmable** — not magic-driven.
+> **Tirne** is not just minimal — it's architectural. It gives you full control over structure, type, and execution without opinionated tooling or hidden behaviors.
 
 ---
 
@@ -194,20 +215,20 @@ To use in Workers :
 npm install tirne
 ```
 
-To use in Workers or Deno:
-
-* All core APIs are `fetch()`-based — simply adapt routing to your runtime.
-
 ---
 
 ## 🤍 Use Cases
 
 Tirne is ideal for:
+* ⚡️ Need edge-speed APIs — Sub-millisecond response times on Bun, Workers, and Deno.
 
-* Bun-native HTTP APIs with zero setup
-* Drop-in replacement for Express or Hono in Bun projects
-* Cloudflare Worker endpoints (with fetch-compatible handlers)
-* Building edge-friendly backends with structured code
+* 📦 Want type-driven reliability — APIs shaped by types, not runtime guesswork.
+
+* 🌐 Deploy on modern runtimes — Runs fetch-first, works anywhere: Bun, Node, Workers, Deno.
+
+* 🧪 Design with side effects in mind — Control cookies, headers, and auth with intention.
+
+
 
 ---
 
@@ -224,5 +245,6 @@ Tirne is ideal for:
 
 ## 📜 License
 
-MIT
+Apache 2.0
+
 
