@@ -1,17 +1,18 @@
 // src/util.ts
 
-/** JSON レスポンスを生成します */
 export function json(
   data: unknown,
   status = 200,
   headers: HeadersInit = {}
 ): Response {
+  const h = new Headers({
+    "Content-Type": "application/json",
+    ...headers,
+  });
+
   return new Response(JSON.stringify(data), {
     status,
-    headers: {
-      "Content-Type": "application/json",
-      ...headers,
-    },
+    headers: h,
   });
 }
 

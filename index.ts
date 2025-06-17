@@ -1,23 +1,46 @@
 import { Server, Route } from "./src/server";
-import type { Middleware } from "./src/middleware";
+import { json } from "./src/util";
+import { createAuth } from "./src/middleware/auth";
+import { generateToken } from "./src/auth/token";
+import { setCookie } from "./src/cookie";
 
-const logger: Middleware = async (req, next) => {
-  const start = Date.now();
-  const res = await next();
-  console.log(`[${req.method}] ${req.url} - ${Date.now() - start}ms`);
-  return res;
-};
+const SECRET = "super-secret-key";
 
 const routes: Route[] = [
   {
-    method: "GET",
-    path: "/",
-    handler: () => new Response("Hello Tirne!"),
+    method: "POST",
+    path: "/login",
+    handler: async (req) => {
+      const token = await generateToken({
+  id: "user123",
+  role: "admin",
+  iat: Date.now(), 
+  jti: crypto.randomUUID(),             // ✅ 追加
+}, SECRET);
+      const headers = new Headers();
+      headers.set("Set-Cookie", setCookie("auth", token, {
+        httpOnly: true,
+        path: "/",
+        maxAge: 3600,
+      }));
+      return json({ token }, 200, headers);
+    },
   },
+  // entry.ts
+
+{
+  method: "GET",
+  path: "/me",
+  handler: (req) => {
+    const user = (req as any).user;
+    return json({ user });
+  },
+  middleware: [createAuth({ secret: "super-secret-key" })],
+}
+
 ];
 
 const server = new Server(routes);
-server.use(logger);
 
 export default {
   fetch: (req: Request) => server.fetch(req),

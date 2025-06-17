@@ -2,9 +2,11 @@
 
 import { json } from "./util";
 
-/** 基本ハンドラ型 */
-
-export type Handler = (req: Request, params?: Record<string, string>) => Response | Promise<Response>;
+export type Handler = (
+  req: Request,
+  params?: Record<string, string>,
+  user?: Record<string, any>
+) => Response | Promise<Response>;
 
 /** ミドルウェア型：next() で次の処理へ */
 export type Middleware = (
