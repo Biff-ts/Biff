@@ -9,7 +9,7 @@
 > Tirne — from Old English “structure, strength” —　structure over boilerplate. A minimal, type-safe web framework for Multi Runtime, with edge-native performance and first-class control of side effects."
 
 ---
-> 🚀 Tirne has been featured in [this article on DEV.to](https://dev.to/yukinisihikawa/tirne-the-explicit-go-inspired-web-framework-for-bun-nodedeno-and-workers-2igi),  
+> 🚀 Tirne has been featured in [this article on DEV.to](https://dev.to/yukinisihikawa/nextjs-forgot-to-design-apis-tirne-didnt-5bll),  
 > where it received early reactions from:
 
 - [Ben Halpern](https://dev.to/ben) (Founder of DEV.to & Forem)
@@ -34,7 +34,7 @@ Tirne is a declarative, type-safe framework for Bun — designed to make side ef
 ```bash
 npx create-tirne-app
 ```
-<p align="center"> <img src="./assets/terminal-setup.png" width="500" alt="Tirne setup terminal screenshot"> </p> 
+<p align="center"> <img src="./assets/スクリーンショット 2025-06-17 21.58.05.png" width="500" alt="Tirne setup terminal screenshot"> </p> 
 Choose your environment:
 
 * **Bun**

@@ -8,4 +8,4 @@ export * from "./middleware/rateLimit";
 export * from "./middleware/cors";
 export * from "./auth/token";
 export * from "./middleware/auth";
-export * from "./utils/base64url"
+export * from "./utils/base64url";
