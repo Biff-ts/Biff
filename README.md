@@ -9,14 +9,12 @@
 > Tirne — from Old English “structure, strength” —　structure over boilerplate. A minimal, type-safe web framework for Multi Runtime, with edge-native performance and first-class control of side effects."
 
 ---
-> 🚀 Tirne has been featured in [this article on DEV.to](https://dev.to/yukinisihikawa/nextjs-forgot-to-design-apis-tirne-didnt-5bll),  
-> where it received early reactions from:
+## 📚 Official Documentation
 
-- [Ben Halpern](https://dev.to/ben) (Founder of DEV.to & Forem)
-- [Nathan Tarbert](https://dev.to/nathant)
-- [Nevo David](https://dev.to/nevodavid)
+The full documentation for Tirne — the Bun & Edge-native web framework with zero boilerplate and structured composition.
 
-We're grateful for the attention and using the feedback to guide the next iterations.
+👉 https://tirne.dev
+
 
 ---
 
