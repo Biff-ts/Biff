@@ -9,11 +9,13 @@
 > Tirne — from Old English “structure, strength” —　structure over boilerplate. A minimal, type-safe web framework for Multi Runtime, with edge-native performance and first-class control of side effects."
 
 ---
-## 📚 Official Documentation
+[![Docs](https://img.shields.io/badge/docs-tirne.dev-blue?logo=readthedocs)](https://tirne.dev)
 
-The full documentation for Tirne — the Bun & Edge-native web framework with zero boilerplate and structured composition.
+## 📚 Tirne Documentation
 
-👉 https://tirne.dev
+Explore the full guide to Tirne — a Bun & Edge-native web framework built for speed, structure, and zero boilerplate.
+
+👉 [https://tirne.dev](https://tirne.dev)
 
 
 ---
