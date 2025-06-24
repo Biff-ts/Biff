@@ -1,6 +1,6 @@
 {
   "name": "tirne",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Minimal and structured web framework for Bun. Go-inspired, function-first.",
   "type": "module",
   "exports": {
@@ -18,8 +18,7 @@
   "scripts": {
     "build": "bun build src/index.ts --outdir dist && tsc --emitDeclarationOnly",
     "dev": "bun --watch index.ts",
-        "postbuild": "rimraf src/**/*.d.ts"
-
+    "postbuild": "rimraf src/**/*.d.ts"
   },
   "keywords": [
     "bun",
