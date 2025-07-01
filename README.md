@@ -6,7 +6,10 @@
 ![stars](https://img.shields.io/github/stars/Tirne-ts/tirne?style=social)
 
 
-> Tirne — from Old English “structure, strength” —　structure over boilerplate. A minimal, type-safe web framework for Multi Runtime, with edge-native performance and first-class control of side effects."
+> Tirne — Write high-performance APIs in one file.
+Built for Bun. Type-safe by design. Cold starts under 1ms.
+
+
 
 ---
 [![Docs](https://img.shields.io/badge/docs-tirne.dev-blue?logo=readthedocs)](https://tirne.dev)
