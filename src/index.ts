@@ -9,3 +9,5 @@ export * from "./middleware/cors";
 export * from "./auth/token";
 export * from "./middleware/auth";
 export * from "./utils/base64url";
+export * from "./defineRoute";
+export * from "./types";

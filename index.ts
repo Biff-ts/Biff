@@ -1,18 +1,16 @@
+import { defineRoutes } from "./src/defineRoute";
+import type { Route } from "./src/types"; // 型補完にも使える
 import { Server } from "./src/server";
-import type { Route } from "./src/server";
-
-const routes = [
+const routes = defineRoutes([
   {
     method: "GET",
     path: "/",
-    handler: (_req: Request) => new Response("Hello Tirne + Bun!"),
+    handler: (_req) => new Response("Hello world"),
   },
-] satisfies Route[];
-
+  {
+    method: "POST",
+    path: "/echo",
+    handler: async (req) => new Response(await req.text()),
+  }
+] as const satisfies Route[]);
 const server = new Server(routes);
-
-Bun.serve({
-  fetch: server.fetch,
-  port: 3000,
-});
-console.log("Server running on http://localhost:3000");

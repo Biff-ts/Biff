@@ -1,13 +1,6 @@
-import type { Handler, Middleware } from "./middleware";
-import { composeMiddleware } from "./middleware";
+import type { Handler, Middleware } from "./types";
 import { matchPath } from "./router";
-
-export interface Route {
-  method: string;
-  path: string;
-  handler: Handler;
-  middleware?: Middleware[];
-}
+import type { Route } from "./types";
 
 export class Server {
   private routes: Route[];
@@ -56,7 +49,15 @@ export class Server {
       ? [...this.globalMiddleware, ...matched.middleware]
       : this.globalMiddleware;
 
-    const composed = composeMiddleware(middlewareChain, handler);
-    return composed(req);
+    if (middlewareChain.length > 0) {
+      for (const mw of middlewareChain) {
+        const result = await mw(req, handler);
+        if (result instanceof Response) {
+          return result;
+        }
+      }
+    }
+
+    return handler(req, params);
   };
 }

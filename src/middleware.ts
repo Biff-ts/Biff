@@ -2,17 +2,8 @@
 
 import { json } from "./util";
 
-export type Handler = (
-  req: Request,
-  params?: Record<string, string>,
-  user?: Record<string, any>
-) => Response | Promise<Response>;
-
+import type { Handler,Middleware } from "./types";
 /** ミドルウェア型：next() で次の処理へ */
-export type Middleware = (
-  req: Request,
-  next: () => Promise<Response>
-) => Promise<Response>;
 
 /** Tirne 独自エラー型 */
 export class TirneError extends Error {
@@ -61,7 +52,7 @@ export function composeMiddleware(
 /** デフォルトで含まれるグローバルエラーハンドラー */
 const errorHandler: Middleware = async (req, next) => {
   try {
-    return await next();
+    return await next(req, {});
   } catch (err) {
     console.error("Unhandled error:", err);
 
